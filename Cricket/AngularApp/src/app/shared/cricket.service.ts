@@ -4,29 +4,29 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { Employee } from './employee.model';
+import { Cricket } from './cricket.model';
 
 @Injectable()
-export class EmployeeService {
-  selectedEmployee: Employee;
-  employees: Employee[];
-  readonly baseURL = 'http://localhost:3000/employees';
+export class CricketService {
+  selectedCricket: Cricket;
+  crickets: Cricket[];
+  readonly baseURL = 'http://localhost:3000/crickets';
 
   constructor(private http: HttpClient) { }
 
-  postEmployee(emp: Employee) {
+  postCricket(emp: Cricket) {
     return this.http.post(this.baseURL, emp);
   }
 
-  getEmployeeList() {
+  getCricketList() {
     return this.http.get(this.baseURL);
   }
 
-  putEmployee(emp: Employee) {
+  putCricket(emp: Cricket) {
     return this.http.put(this.baseURL + `/${emp._id}`, emp);
   }
 
-  deleteEmployee(_id: string) {
+  deleteCricket(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
 

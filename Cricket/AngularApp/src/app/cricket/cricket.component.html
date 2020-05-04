@@ -4,11 +4,11 @@
       <div class="card-content white-text">
         <div class="row">
           <div class="col s5">
-            <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
-              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+            <form #cricketForm="ngForm" (ngSubmit)="onSubmit(cricketForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="cricketService.selectedCricket._id">
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter full name" required>
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="cricketService.selectedCricket.name" placeholder="Enter full name" required>
                   <label>Player Name :
                     <label class="red-text">*</label>
                   </label>
@@ -16,26 +16,26 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="Date" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="">
-                  <label>Birthday :</label>
+                  <input type="text" name="position" #name="ngModel" [(ngModel)]="cricketService.selectedCricket.position" placeholder="">
+                  <label>Position :</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="Date" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="">
+                  <input type="date" name="office" #name="ngModel" [(ngModel)]="cricketService.selectedCricket.joining" placeholder="">
                   <label>Joining Date :</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Left handed batsmen">
-                  <label>Skills:</label>
+                  <input type="date" name="salary" #name="ngModel" [(ngModel)]="cricketService.selectedCricket.birthday" placeholder="">
+                  <label>Birthday:</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
-                  <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(cricketForm)">Reset</button>
+                  <button class="btn btn-custom right" type="submit" [disabled]="!cricketForm.valid">Submit</button>
                 </div>
               </div>
             </form>
@@ -45,20 +45,20 @@
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Birthday</th>
+                      <th>Postion</th>
                       <th>Joining Date</th>
                       <th></th>
                     </tr>
                   </thead>
-                  <tr *ngFor="let emp of employeeService.employees">
+                  <tr *ngFor="let emp of cricketService.crickets">
                     <td>{{emp.name}}</td>
                     <td>{{emp.position}}</td>
-                    <td>{{emp.office}}</td>
+                    <td>{{emp.joining}}</td>
                     <td>
                         <a class="action-btn" (click)="onEdit(emp)">
                           <i class="material-icons">edit</i>
                         </a>
-                        <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                        <a class="action-btn" (click)="onDelete(emp._id,cricketForm)">
                           <i class="material-icons">delete</i>
                         </a>
                       </td>
